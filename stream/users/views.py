@@ -2,12 +2,12 @@ from users.serializers import UserSerializer
 from rest_framework import generics
 from django.contrib.auth import get_user_model
 from rest_framework.response import Response
-
+from rest_framework import permissions
 # Create your views here.
 
 
 class CreateUserView(generics.CreateAPIView):  # Provides only POST Method
-
+    permission_classes = (permissions.AllowAny,)
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
