@@ -15,6 +15,10 @@ class App extends Component {
     this.logout = this.logout.bind(this);
   }
 
+  async componentDidMount () {
+      const { default: WebSocket } = await import('./webSocket.js')
+    }
+
   handleMusic(e) {
     let audio = document.getElementsByTagName('audio')[0];
     if (this.state.muted) {
@@ -63,7 +67,6 @@ class App extends Component {
           <p id="volume">{this.state.volume}</p>
         </div>
         <button onClick={this.logout}>LOGOUT</button>
-        <script src="webSocket.js" type="text/javascript"></script>
       </div>
     );
   }

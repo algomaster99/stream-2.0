@@ -32,13 +32,14 @@ class PlayerConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
+                'type': 'web_stream',
                 'label': label,
-                'volume': volume
+                'volume': volume,
             }
         )
 
     # Receive message from room group
-    def chat_message(self, event):
+    def web_stream(self, event):
         label = event['label']
         volume = event['volume']
 
