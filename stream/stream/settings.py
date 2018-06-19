@@ -89,7 +89,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6380)],
+            "hosts": [('127.0.0.1', 6379)],
         },
     },
 }
@@ -142,5 +142,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-MEDIA_URL = 'stream/player/templates/player/'

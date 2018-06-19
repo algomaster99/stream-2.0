@@ -1,20 +1,18 @@
-var playerSocket = new WebSocket('ws://localhost:8000/ws/stream/');
-var toggleButton = document.getElementById('toggle');
+var streamSocket = new WebSocket('ws://127.0.0.1:8000/ws/stream/');
+var searchURL = document.getElementById('search');
 
-playerSocket.onmessage = function(e) {
-   var data = JSON.parse(e.data);
-   var label = data['label'];
-   var volume = data['volume'];
-   toggleButton.value == 'play' ? 'pause' : 'play';
+streamSocket.onmessage = function(e) {
+    var data = JSON.parse(e.data);
+    var url = data['url'];
 };
 
-playerSocket.onclose = function(e) {
-  console.error('Chat socket closed unexpectedly');
-};
+streamSocket.onclose = function(e) {
+    console.error('Failed!');
+}
 
-toggleButton.addEventListener('click', function(){
-  let value = toggleButton.value;
-  playerSocket.send(JSON.stringify({
-    'label': value
-  }));
+searchURL.addEventListener('input', (e) => {
+    let url = searchURL.value;
+    streamSocket.send(JSON.stringify({
+        'url': url
+    }));
 });
