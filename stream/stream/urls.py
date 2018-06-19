@@ -25,6 +25,7 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^stream/', include('users.urls')),
+    url(r'^stream/', include('player.urls')),
     url(r'^$', generic.RedirectView.as_view(
          url='/api/', permanent=False)),
     url(r'^api/$', get_schema_view()),
