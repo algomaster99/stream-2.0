@@ -37,7 +37,7 @@ class App extends Component {
         </header>
         <div className="App-intro">
           <input type="text" id="search" value={this.state.url} onInput={this.handleSearchQuery} />
-        <p>{this.state.url}</p>
+        <p id="result">{this.state.url}</p>
         </div>
         <button onClick={this.logout}>LOGOUT</button>
       </div>
