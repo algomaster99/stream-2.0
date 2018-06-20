@@ -1,26 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Search from './YouTubeAPI.js';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      url: '',
-    }
-      this.handleSearchQuery = this.handleSearchQuery.bind(this);
       this.logout = this.logout.bind(this);
   }
 
   async componentDidMount () {
-      const { default: WebSocket } = await import('./webSocket.js')
-    } 
-
-  handleSearchQuery(e){
-    this.setState({
-      url: e.target.value,
-    });
-  }
+      await import('./webSocket.js');
+    }
 
   logout(e) {
     e.preventDefault();
@@ -36,8 +27,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className="App-intro">
-          <input type="text" id="search" value={this.state.url} onInput={this.handleSearchQuery} />
-        <p id="result">{this.state.url}</p>
+          <Search />
         </div>
         <button onClick={this.logout}>LOGOUT</button>
       </div>

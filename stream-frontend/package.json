@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0-beta",
     "history": "^4.7.2",
+    "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
