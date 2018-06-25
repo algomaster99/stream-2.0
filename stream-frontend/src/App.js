@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Search from './YouTubeAPI.js';
+import Search from './fetchData.js';
 
 class App extends React.Component {
   constructor(props){
@@ -22,13 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div className="App-intro">
-          <Search />
-        </div>
+        <Search />
         <button onClick={this.logout}>LOGOUT</button>
       </div>
     );
