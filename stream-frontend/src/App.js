@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Search from './fetchData.js';
+import StreamController from './streamController.js';
 
 class App extends React.Component {
   constructor(props){
@@ -22,6 +23,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Search />
+        <StreamController />
         <button onClick={this.logout}>LOGOUT</button>
       </div>
     );

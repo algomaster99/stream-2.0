@@ -4,7 +4,7 @@ import { streamSocket } from './webSocket.js';
 export default class VideoDetail extends React.Component {
 
   handleClick = () => {
-    let data = {
+      let data = {
       url: this.props.video.id.videoId,
     }
     streamSocket.send(JSON.stringify(data));
@@ -22,3 +22,4 @@ export default class VideoDetail extends React.Component {
     );
   }   
 }
+

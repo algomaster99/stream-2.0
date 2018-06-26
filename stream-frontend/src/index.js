@@ -20,7 +20,7 @@ ReactDOM.render((
       <Switch>
         <Route exact path="/register/" component={Register} />
         <Route exact path="/login/" component={Login} />
-        <PrivateRoute path="/stream/" component={Stream} />
+        <Route path="/stream/" component={Stream} />
         <PrivateRoute path="/" component={App}/>
       </Switch>
     </ConnectedRouter>
