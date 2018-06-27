@@ -6,15 +6,12 @@ export default class StreamController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      play: false,
+      play: true,
       url: "",
     };
   }
 
   handlePlay = () => {
-    this.setState({
-      play: !this.state.play,
-    });
     let data = {
       url: this.state.url,
       play: this.state.play,
@@ -27,9 +24,10 @@ export default class StreamController extends React.Component {
     streamSocket.onmessage = (e) => {
       let data = JSON.parse(e.data);
       this.setState({
-        play: data['play'],
+        play: !data['play'],
         url: data['url'],
       });
+    console.log(this.state.play);
     }
   }
 
@@ -37,7 +35,7 @@ export default class StreamController extends React.Component {
     return (
       <div>
         <i 
-         className={this.state.play ? "fa fa-pause-circle" : "fa fa-play-circle"}
+         className={!this.state.play ? "fa fa-pause-circle" : "fa fa-play-circle"}
          onClick={this.handlePlay}>
         </i>
       </div>
