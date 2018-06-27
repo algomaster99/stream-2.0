@@ -8,36 +8,41 @@ export default class StreamController extends React.Component {
     this.state = {
       play: false,
       playIcon: "fa fa-play-circle",
+      url: "",
     };
-  // this.connection = new WebSocket('ws://127.0.0.1:8000/ws/stream/');
   }
 
-  handleClick = () => {
-    this.setState({
-      play: !this.state.play,
-      playIcon: this.state.playIcon == "fa fa-play-circle" ? "fa fa-pause-circle" : "fa fa-play-circle",
-    });
+  handlePlay = () => {
+    this.state.play ? this.setState({play:false}) : this.setState({play:true});
     let data = {
+      url: this.state.url,
       play: this.state.play,
     }
+    console.log(data);
+    console.log(this.state);
     streamSocket.send(JSON.stringify(data));
   }
 
-  componentWillMount() { 
+  componentDidMount() { 
     streamSocket.onmessage = (e) => {
       let data = JSON.parse(e.data);
       this.setState({
         play: data['play'],
+        url: data['url'],
       });
+      console.log(this.state);
+      console.log(data);
     }
   }
 
   render() {
     return (
       <div>
-        <i className={this.state.playIcon} onClick={this.handleClick}></i>
+        <i 
+         className={this.state.play ? "fa fa-pause-circle" : "fa fa-play-circle"}
+         onClick={this.handlePlay}>
+        </i>
       </div>
     ); 
-  }  
-
+  } 
 }

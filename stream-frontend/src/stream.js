@@ -23,16 +23,18 @@ export default class Stream extends React.Component {
     }
   }
  
-  onPlay = () => {
+  handlePlay = () => {
     let data = {
       play: true,
+      url: this.state.url,
     };
     streamSocket.send(JSON.stringify(data));
   }
 
-  onPause = () => {
+  handlePause = () => {
     let data = {
       play: false,
+      url: this.state.url,
     };
     streamSocket.send(JSON.stringify(data));
   }
