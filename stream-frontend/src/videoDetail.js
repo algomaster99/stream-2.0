@@ -7,8 +7,12 @@ export default class VideoDetail extends React.Component {
       let data = {
         url: this.props.video.id.videoId,
         play: false,
+        mute: false,
+        duration: 0,
+        seek: 0,
     }
     streamSocket.send(JSON.stringify(data));
+    console.log("click video");
   }
 
   render() {

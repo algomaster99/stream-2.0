@@ -8,6 +8,7 @@
     "history": "^4.7.2",
     "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-player": "^1.6.4",
@@ -20,6 +21,7 @@
     "redux-api-middleware": "^2.0.0-beta.3",
     "redux-persist": "^5.0.0-beta.7",
     "redux-persist-transform-filter": "0.0.18",
+    "semantic-ui-icon": "^2.3.1",
     "semantic-ui-react": "^0.81.1",
     "youtube-api-search": "^0.0.5",
     "ytsearch": "^1.0.4"
