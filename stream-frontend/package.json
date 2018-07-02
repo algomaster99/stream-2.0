@@ -3,26 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
     "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",
+    "normalize.css": "^8.0.0",
     "react": "^16.4.1",
+    "react-burger-menu": "^2.5.2",
     "react-dom": "^16.4.1",
     "react-player": "^1.6.4",
     "react-redux": "^5.0.7",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.4",
     "react-transition-group": "^1.1.2",
-    "reactstrap": "^6.1.0",
+    "reactstrap": "^6.2.0",
     "redux": "^4.0.0",
     "redux-api-middleware": "^2.0.0-beta.3",
     "redux-persist": "^5.0.0-beta.7",
     "redux-persist-transform-filter": "0.0.18",
     "semantic-ui-icon": "^2.3.1",
-    "semantic-ui-react": "^0.81.1",
+    "semantic-ui-react": "^0.81.3",
     "youtube-api-search": "^0.0.5",
     "ytsearch": "^1.0.4"
   },
@@ -32,5 +34,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8000/"
+  "proxy": "http://localhost:8000/",
+  "devDependencies": {
+    "html-loader": "^0.5.5"
+  }
 }

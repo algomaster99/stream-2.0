@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { streamSocket } from './webSocket.js';
 import 'font-awesome/css/font-awesome.min.css';
-
+ 
 export default class StreamController extends React.Component {
   constructor(props) {
     super(props);

@@ -65,6 +65,7 @@ export default class Stream extends React.Component {
   }
 
   handleDuration = (duration) => {
+    //let duration = this.player.getDuration();
     this.setState({
       duration: duration,
     }, () => {
@@ -78,6 +79,7 @@ export default class Stream extends React.Component {
         streamSocket.send(JSON.stringify(data));
        });
     console.log("handleDuration");
+    console.log(this.state.duration);
   }
 
   handleProgress = (data) => {
@@ -94,6 +96,7 @@ export default class Stream extends React.Component {
         streamSocket.send(JSON.stringify(data));
        });
     console.log("handleProgress");
+    console.log(this.state.play);
   }
 
   ref = (player) => {

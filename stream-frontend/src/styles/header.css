@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: 'Gloria Hallelujah';
+  font-size: 3rem;
+}
+
+.header > img {
+  width: 100px;
+  height: 50px; 
+}
+
+@media only screen and (max-width: 600px) {
+  .header > img {
+    display: none;
+  }
+}

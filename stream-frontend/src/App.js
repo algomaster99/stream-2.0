@@ -1,5 +1,8 @@
 import React from 'react';
-import './App.css';
+import 'normalize.css';
+import './styles/App.css';
+import { scaleRotate as Menu } from 'react-burger-menu';
+import Header from './header.js';
 import Search from './fetchData.js';
 import StreamController from './streamController.js';
 
@@ -21,10 +24,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Search />
-        <StreamController />
-        <button onClick={this.logout}>LOGOUT</button>
+      <div id="outer-container">
+        <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
+          <button>Works</button>
+        </Menu>
+        <main id="page-wrap">
+          <Header />
+          <Search />
+          <StreamController />
+          <button onClick={this.logout}>Logout</button>
+        </main>
       </div>
     );
   }
