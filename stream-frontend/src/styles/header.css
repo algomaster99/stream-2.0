@@ -2,16 +2,27 @@
 
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-size: 1.5rem;
   font-family: 'Gloria Hallelujah';
   font-size: 3rem;
+  padding-top: 24px;
 }
 
-.header > img {
+.header > div {
+  margin-right: auto;
+  margin-left: -90px;
+}
+
+.header > div > img {
   width: 100px;
-  height: 50px; 
+  height: 50px;
+}
+
+.header > i {
+  margin-right: auto; 
+  margin-left: 36px;
 }
 
 @media only screen and (max-width: 600px) {

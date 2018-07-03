@@ -11,6 +11,7 @@ import Stream from './stream.js';
 import PrivateRoute from './containers/PrivateRoute';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'semantic-ui-css/semantic.min.css';
 import configureStore from './store'
 const history = createHistory()
 const store = configureStore(history)

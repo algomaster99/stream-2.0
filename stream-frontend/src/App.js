@@ -1,7 +1,7 @@
 import React from 'react';
 import 'normalize.css';
+//import { scaleRotate as Menu } from 'react-burger-menu';
 import './styles/App.css';
-import { scaleRotate as Menu } from 'react-burger-menu';
 import Header from './header.js';
 import Search from './fetchData.js';
 import StreamController from './streamController.js';
@@ -24,11 +24,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="outer-container">
-        <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"}>
-          <button>Works</button>
-        </Menu>
-        <main id="page-wrap">
+      <div className="outer-container">
+        <div className="sidebar">
+          
+        </div>
+        <main className="page-wrap">
           <Header />
           <Search />
           <StreamController />
