@@ -1,9 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import Slider from 'react-rangeslider';
-import 'react-rangeslider/lib/index.css';
 import { streamSocket } from './webSocket.js';
 import 'font-awesome/css/font-awesome.min.css';
+import './styles/streamController.css';
  
 export default class StreamController extends React.Component {
   constructor(props) {
@@ -49,9 +48,9 @@ export default class StreamController extends React.Component {
    console.log("handleMute");
   }
 
-  handleSeek = (value) => {
+  handleSeek = (e) => {
     this.setState({
-      seek: Number(value),  
+      seek: e.target.value,
     }, () => {
         let data = {
           url: this.state.url,
@@ -63,10 +62,6 @@ export default class StreamController extends React.Component {
         streamSocket.send(JSON.stringify(data));
       });
     console.log("handleSeek");
-  }
-
-  handleTooltip = () => {
-    return parseInt((this.state.seek/this.state.duration)*100).toString()+"%";  
   }
 
   componentDidMount() { 
@@ -94,15 +89,8 @@ export default class StreamController extends React.Component {
          className={this.state.mute ? "fa fa-volume-off" : "fa fa-volume-up"}
          onClick={this.handleMute}>
         </i><br />
-        {/*<input type="range" name="seek" min="0" max={this.state.duration} value={this.state.seek} onChange={this.handleSeek} />*/}
-        <Slider
-          min={0}
-          max={this.state.duration}
-          value={this.state.seek}
-          onChange={this.handleSeek}
-          format={this.handleTooltip}
-        />
-          <p>{moment("0").seconds(this.state.seek).format('mm:ss')+"/"+moment("0").seconds(this.state.duration).format('mm:ss')}</p>
+        <input type="range" name="seek" min="0" max={this.state.duration} value={this.state.seek} onChange={this.handleSeek} />
+        <p>{moment("0").seconds(this.state.seek).format('mm:ss')+"/"+moment("0").seconds(this.state.duration).format('mm:ss')}</p>
       </div>
     ); 
   } 

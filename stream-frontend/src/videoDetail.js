@@ -1,7 +1,7 @@
 import React from 'react';
 import { streamSocket } from './webSocket.js';
 import './styles/videoDetail.css';
-import { Card, Image, Button, Icon, } from 'semantic-ui-react';
+import { Card, Image, Button, Icon, Reveal} from 'semantic-ui-react';
 
 export default class VideoDetail extends React.Component {
 

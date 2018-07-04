@@ -7,11 +7,11 @@ export default class VideoList extends React.Component {
   
   render() {
     return (
-      <Card.Group className="videos-container">
+      <div className="videos-container">
         {this.props.videos.map(video => (
           <VideoDetail video={video} />
         ))}
-      </Card.Group>
+      </div>
     );
   }
 
