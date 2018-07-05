@@ -4,7 +4,7 @@ import './styles/App.css';
 import Header from './header.js';
 import Search from './fetchData.js';
 import StreamController from './streamController.js';
-import { Sidebar, Menu, Icon, Segment } from 'semantic-ui-react';
+import { Sidebar, Menu, Icon } from 'semantic-ui-react';
 
 class App extends React.Component {
   constructor(props){
@@ -25,7 +25,7 @@ class App extends React.Component {
     window.location.reload();
   }
 
-  handleButtonClick = () => {
+  handleButtonClick = (e) => {
     this.setState({ visible: !this.state.visible });
     const page = document.querySelector('.page-wrap');
     page.style.transform = "rotateY(-5deg) translateX(75px)";
@@ -54,6 +54,10 @@ class App extends React.Component {
               visible={this.state.visible}
               width='thin'
             >
+            <Menu.Item as='a' id="current">
+              <Icon name='music'/>
+               
+            </Menu.Item>
             <Menu.Item as='a'>
               <Icon name='home' />
               Home

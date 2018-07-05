@@ -1,3 +1,10 @@
-.stream-controller {
-  
+#wrap {
+  position: fixed;
+  bottom: 0;
+}
+
+#stream-controller {
+  display: flex;
+  width: 100vw;
+  justify-content: center; 
 }

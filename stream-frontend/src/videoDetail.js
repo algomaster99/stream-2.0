@@ -1,9 +1,16 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { streamSocket } from './webSocket.js';
 import './styles/videoDetail.css';
-import { Card, Image, Button, Icon, Reveal} from 'semantic-ui-react';
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
 
 export default class VideoDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: "",
+    }
+  }
 
   handleClick = () => {
       let data = {
@@ -15,6 +22,11 @@ export default class VideoDetail extends React.Component {
     }
     streamSocket.send(JSON.stringify(data));
     console.log("click video");
+    this.setState({
+      image: this.props.video.snippet.thumbnails.default.url,
+    }, () => {
+       ReactDOM.render(<div>Currently Playing:<Image src={this.state.image} /></div>, document.getElementById('current'));
+       });
   }
 
   render() {

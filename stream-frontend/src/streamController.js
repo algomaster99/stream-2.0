@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { streamSocket } from './webSocket.js';
-import 'font-awesome/css/font-awesome.min.css';
+import { Segment, Icon } from 'semantic-ui-react';
 import './styles/streamController.css';
  
 export default class StreamController extends React.Component {
@@ -80,17 +80,16 @@ export default class StreamController extends React.Component {
 
   render() {
     return (
-      <div className="stream-controller">
-        <i 
-         className={this.state.play ? "fa fa-pause-circle" : "fa fa-play-circle"}
-         onClick={this.handlePlay}>
-        </i>
-        <i
-         className={this.state.mute ? "fa fa-volume-off" : "fa fa-volume-up"}
+      <div id="wrap">
+      <Segment inverted id="stream-controller">
+        <Icon name={this.state.play ? 'pause' : 'play'} onClick={this.handlePlay} />
+        <Icon
+         name={this.state.mute ? "volume off" : "volume up"}
          onClick={this.handleMute}>
-        </i><br />
+        </Icon><br />
         <input type="range" name="seek" min="0" max={this.state.duration} value={this.state.seek} onChange={this.handleSeek} />
         <p>{moment("0").seconds(this.state.seek).format('mm:ss')+"/"+moment("0").seconds(this.state.duration).format('mm:ss')}</p>
+      </Segment>
       </div>
     ); 
   } 

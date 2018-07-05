@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Input, Container, Button } from 'semantic-ui-react';
+import { Input, Container } from 'semantic-ui-react';
 import VideoList from './videoList.js';
 import './styles/fetchData.css';
 

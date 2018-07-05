@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
 import './styles/videoList.css';
 import VideoDetail from './videoDetail.js';
 
