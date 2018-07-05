@@ -37,12 +37,12 @@ export default class VideoDetail extends React.Component {
         <Card.Content extra>
           <div className='ui two buttons'>
             <Button.Group widths="2">
-              <Button icon labelPosition="left" onClick={this.handleClick}>
+              <Button icon labelPosition="left" onClick={this.handleClick} color='green'>
                 <Icon name="play" />
                 Play
               </Button>
               <Button.Or />
-              <Button icon labelPosition="right">
+              <Button icon labelPosition="right" color='blue'>
                 Queue
                 <Icon name="plus" />
               </Button> 

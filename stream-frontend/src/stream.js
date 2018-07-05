@@ -90,7 +90,7 @@ export default class Stream extends React.Component {
           play: this.state.play,
           url: this.state.url,
           mute: this.state.mute,
-          duration: this.state.duration,
+          duration: this.player.getDuration(),
           seek: this.state.seek,
         };
         streamSocket.send(JSON.stringify(data));

@@ -1,1 +1,28 @@
+.outer-container {
+  background-color: rgb(0,0,0,0.5);
+}
 
+.page-wrap {
+  min-height: 100vh;
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.magic-wrap {
+  perspective: 150px;
+}
+
+#logout {
+  margin: 0;
+  margin-top: auto;
+  border-top: 1px solid rgb(50,51,52);
+}
+
+#sidebar {
+  display: flex;
+}
+
+#close {
+  color: #fc6900;
+}

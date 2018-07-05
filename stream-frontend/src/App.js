@@ -25,55 +25,63 @@ class App extends React.Component {
     window.location.reload();
   }
 
-  handleButtonClick = () => this.setState({ visible: !this.state.visible })
+  handleButtonClick = () => {
+    this.setState({ visible: !this.state.visible });
+    const page = document.querySelector('.page-wrap');
+    page.style.transform = "rotateY(-5deg) translateX(75px)";
+    page.style.transition = "transform 0.5s";
+  }
 
-  handleSidebarHide = () => this.setState({ visible: false })
+  handleSidebarHide = () => {
+    this.setState({ visible: false });
+    const page = document.querySelector('.page-wrap');
+    page.style.transform = "";
+    page.style.transition = "transform 0.5s";
+  }
 
   render() {
     return (
       <div className="outer-container">
-        <div className="sidebar">
+        <div>
           <Sidebar.Pushable>
-          <Sidebar
-            as={Menu}
-            animation='overlay'
-            icon='labeled'
-            inverted
-            onHide={this.handleSidebarHide}
-            vertical
-            visible={this.state.visible}
-            width='thin'
-          >
+            <Sidebar id="sidebar"
+              as={Menu}
+              animation='overlay'
+              icon='labeled'
+              inverted 
+              onHide={this.handleSidebarHide}
+              vertical
+              visible={this.state.visible}
+              width='thin'
+            >
             <Menu.Item as='a'>
               <Icon name='home' />
               Home
             </Menu.Item>
             <Menu.Item as='a'>
-              <Icon name='gamepad' />
-              Games
+              <Icon name='user' />
+              Profile
             </Menu.Item>
-            <Menu.Item as='a'>
-              <Icon name='camera' />
-              Channels
+            <Menu.Item onClick={this.logout} id="logout">
+              <Icon name="power off" />
+              Logout
+            </Menu.Item>
+            <Menu.Item as='a' onClick={this.handleSidebarHide} id="close">
+              <Icon name="delete" />
+              Close
             </Menu.Item>
           </Sidebar>
-
           <Sidebar.Pusher dimmed={this.state.visible}>
-              <main className="page-wrap">
-          <Header onClick={this.handleButtonClick}/>
-          <Search />
-          <StreamController />
-          <button onClick={this.logout}>Logout</button>
-        </main>
+            <div className="magic-wrap">
+            <main className="page-wrap">
+              <Header onClick={this.handleButtonClick}/>
+              <Search />
+              <StreamController />
+            </main>
+            </div>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
         </div>
-       {/* <main className="page-wrap">
-          <Header onClick={this.handleButtonClick}/>
-          <Search />
-          <StreamController />
-          <button onClick={this.logout}>Logout</button>
-        </main>*/}
       </div>
     );
   }
