@@ -8,7 +8,7 @@ export default class Header extends React.Component {
       <div className="header">
        <i className="fa fa-bars" onClick={this.props.onClick}></i>
         <div>
-          <img src={logo} alt="Logo" />    
+          <img src={logo} alt="Logo" className="logo" />    
           <span>Viberr</span> 
         </div>
       </div>

@@ -19,6 +19,7 @@ export default class VideoDetail extends React.Component {
         mute: false,
         duration: 0,
         seek: 0,
+        volume: 100,
     }
     streamSocket.send(JSON.stringify(data));
     console.log("click video");

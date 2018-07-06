@@ -2,6 +2,12 @@
   margin: 30px 0;
 }
 
-#searchBar {
+#search-bar {
   width: 40vw; 
+}
+
+@media only screen and (max-width: 600px) {
+  #search-bar {
+    width: 70vw;
+  }
 }

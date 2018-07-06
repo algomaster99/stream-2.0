@@ -18,7 +18,7 @@ export default class Search extends React.Component {
 
   handleSearch = (e) => {
     e.preventDefault();
-    let searchTerm = document.getElementById('searchBar').value;
+    let searchTerm = document.getElementById('search-bar').value;
     /*YTSearch({key: API_KEY, term: searchTerm}, (videos) => {
       this.setState({
         videos: videos,
@@ -47,7 +47,7 @@ export default class Search extends React.Component {
     return (
       <div>
           <Container textAlign="center" className="search">
-            <Input id="searchBar" action={{icon:'search', onClick: this.handleSearch}}  placeholder="Search for good vibes!" size="large" />
+            <Input id="search-bar" action={{icon:'search', onClick: this.handleSearch}}  placeholder="Search for good vibes!" size="large" />
           </Container>
         <VideoList videos={this.state.videos} />
       </div>

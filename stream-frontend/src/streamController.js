@@ -13,6 +13,7 @@ export default class StreamController extends React.Component {
       mute: false,
       duration: 0,
       seek: 0,
+      volume: 100,
     };
   }
 
@@ -26,6 +27,7 @@ export default class StreamController extends React.Component {
           mute: this.state.mute,
           duration: this.state.duration,
           seek: this.state.seek,
+          volume: this.state.volume,
         }
         streamSocket.send(JSON.stringify(data));
       });
@@ -42,6 +44,7 @@ export default class StreamController extends React.Component {
           play: this.state.play,
           duration: this.state.duration,
           seek: this.state.seek,
+          volume: this.state.volume,
         };
         streamSocket.send(JSON.stringify(data));
       });
@@ -58,10 +61,38 @@ export default class StreamController extends React.Component {
           play: this.state.play,
           duration: this.state.duration,
           seek: this.state.seek,
+          volume: this.state.volume,
         };
         streamSocket.send(JSON.stringify(data));
       });
     console.log("handleSeek");
+  }
+
+  handleVolume = (e) => {
+   this.setState({
+     volume: e.target.value,
+   }, () => {
+        let data = {
+          url: this.state.url,
+          mute: this.state.mute,
+          play: this.state.play,
+          duration: this.state.duration,
+          seek: this.state.seek,
+          volume: this.state.volume,
+        };
+        streamSocket.send(JSON.stringify(data));
+      });
+    console.log(this.state.volume);
+  }
+
+  handleHover = () => {
+    const vol = document.querySelector('.volume-slider-container');
+    vol.style.display = 'inline';
+  }
+
+  handleHoverLeave = () => {
+    const vol = document.querySelector('.volume-slider-container');
+    vol.style.display = 'none';
   }
 
   componentDidMount() { 
@@ -73,14 +104,15 @@ export default class StreamController extends React.Component {
         mute: data['mute'],
         duration: data['duration'],
         seek: data['seek'],
+        volume: data['volume'],
       }, () => {
           if (!this.state.duration) {
-      document.querySelector('.slider').style.background = "linear-gradient(90deg, #ffd626 0%, #919191 0%)"
+      document.querySelector('.seek-slider').style.background = "linear-gradient(90deg, #ffd626 0%, #919191 0%)"
       console.log('inital');
     }
     else {
       let percentage = (this.state.seek/this.state.duration)*100
-      document.querySelector('.slider').style.background = "linear-gradient(90deg, #ffd626 "+percentage+"%, #919191 0%)"
+      document.querySelector('.seek-slider').style.background = "linear-gradient(90deg, #ffd626 "+percentage+"%, #919191 0%)"
     console.log('change');
     }
          });
@@ -95,10 +127,12 @@ export default class StreamController extends React.Component {
         <Icon name={this.state.play ? 'pause' : 'play'} onClick={this.handlePlay} />
         <Icon
          name={this.state.mute ? "volume off" : "volume up"}
-         onClick={this.handleMute}>
-        </Icon>
-        <div className="slider-container">
-        <input type="range" name="seek" min="0" max={this.state.duration} value={this.state.seek} onChange={this.handleSeek} className='slider' />
+         onClick={this.handleMute} onMouseEnter={this.handleHover} />
+        <div className="volume-slider-container" id='volume-container' onMouseLeave={this.handleHoverLeave} >
+        <input type="range" name="volume" min="-1" max="100" value={this.state.volume} className='volume-slider' onChange={this.handleVolume} />
+        </div>
+        <div className="seek-slider-container">
+        <input type="range" name="seek" min="0" max={this.state.duration} value={this.state.seek} onChange={this.handleSeek} className='seek-slider' />
         </div>
         <p>{moment("0").seconds(this.state.seek).format('mm:ss')+"/"+moment("0").seconds(this.state.duration).format('mm:ss')}</p>
       </Segment>
