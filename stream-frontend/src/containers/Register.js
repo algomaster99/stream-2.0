@@ -17,8 +17,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (first_name, username, email, password, confirmPassword) => {
-    dispatch(register(first_name, username, email, password, confirmPassword))
+  onSubmit: (first_name, last_name, username, password, confirm_password) => {
+    dispatch(register(first_name, last_name, username, password, confirm_password))
   }
 })
 

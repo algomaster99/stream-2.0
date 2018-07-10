@@ -47,7 +47,7 @@ export default class Search extends React.Component {
     return (
       <div>
           <Container textAlign="center" className="search">
-            <Input id="search-bar" action={{icon:'search', onClick: this.handleSearch}}  placeholder="Search for good vibes!" size="large" />
+            <Input id="search-bar" action={{icon:'search', color: 'primary', onClick: this.handleSearch}}  placeholder="Search for good vibes!" size="large" />
           </Container>
         <VideoList videos={this.state.videos} />
       </div>

@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
     first_name = serializers.CharField(required=True)
-    last_name = serializers.CharField(required=False)
+    last_name = serializers.CharField(required=True)
 
     def create(self, validated_data):
         if validated_data['password'] == validated_data['confirm_password']:
@@ -26,4 +26,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = get_user_model()
-        fields = ('first_name', 'last_name', 'username', 'password', 'confirm_password')
+        fields = ('first_name', 'last_name', 'username', 'password', 'confirm_password', 'is_active')
+
+class UserPermitSerializer(serializers.ModelSerializer):
+
+    class Meta:
+       
+        model = get_user_model()
+        fields = ('username', 'is_active')

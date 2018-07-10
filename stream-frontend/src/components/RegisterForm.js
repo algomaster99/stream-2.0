@@ -5,10 +5,10 @@ import TextInput from './TextInput'
 export default class RegisterForm extends Component {
   state = {
     first_name: '',
+    last_name: '',
     username: '',
-    email: '',
     password: '',
-    confirmPassword: '',
+    confirm_password: '',
   }
 
   handleInputChange = (event) => {
@@ -23,7 +23,7 @@ export default class RegisterForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.onSubmit(this.state.first_name, this.state.username, this.state.email, this.state.password, this.state.confirmPassword)
+    this.props.onSubmit(this.state.first_name, this.state.last_name, this.state.username, this.state.password, this.state.confirm_password)
   }
 
   render() {
@@ -41,23 +41,23 @@ export default class RegisterForm extends Component {
           <TextInput name="first_name" label="first_name" 
                      error={errors.first_name}
                      onChange={this.handleInputChange} />
+          <TextInput name="last_name" label="last_name"
+                     error={errors.last_name}
+                     onChange={this.handleInputChange} />
           <TextInput name="username" label="username" 
                      error={errors.username}
-                     onChange={this.handleInputChange}/>
-          <TextInput name="email" label="email" 
-                     error={errors.email}
                      onChange={this.handleInputChange}/>
           <TextInput name="password" label="Password" 
                      error={errors.password} type="password"  
                      onChange={this.handleInputChange}/>
-          <TextInput name="confirmPassword" label="confirmPassword" 
-                     error={errors.confirmPassword} type="password"  
+          <TextInput name="confirm_password" label="confirm_password" 
+                     error={errors.confirm_password} type="password"  
                      onChange={this.handleInputChange}/>
 
           <Button type="submit" color="primary" size="lg">
               Register
           </Button>
-          <p><a href="http:localhost:8000/login/">Old User</a></p>
+          <p><a href="http:localhost:3000/login/">Old User</a></p>
         </Form>
       </Jumbotron>
     )

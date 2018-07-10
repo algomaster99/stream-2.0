@@ -1,0 +1,21 @@
+{% for user in object_list %}
+<form action="{% url 'permit' user.id %}" method="post">
+    {% csrf_token %}
+    Username: {{ user }}<br />
+    First Name: {{ user.first_name }}<br />
+    Last Name: {{ user.last_name }}<br />
+    Active:- <br />
+    {% if user.is_active %}
+        <label for='active'>Active</label>
+        <input type='radio' name='activity' id='active' value=True checked/><br />
+        <label for='inactive'>Inactive</label>
+        <input type='radio' name='activity' value=False id='inactive' /><br />
+    {% else %}
+        <label for='active'>Active</label>
+        <input type='radio' name='activity' id='active' value=True /><br />
+        <label for='inactive'>Inactive</label>
+        <input type='radio' name='activity' value=False id='inactive' checked /><br />
+    {% endif %}
+    <input type="submit" value="Submit" />
+</form>
+{% endfor %}

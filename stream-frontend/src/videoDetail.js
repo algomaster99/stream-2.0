@@ -14,8 +14,8 @@ export default class VideoDetail extends React.Component {
 
   handleClick = () => {
       let data = {
-        url: this.props.video.id.videoId,
-        play: false,
+        url: this.props.video.id.videoId || "",
+        play: true,
         mute: false,
         duration: 0,
         seek: 0,

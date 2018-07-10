@@ -55,8 +55,8 @@ class App extends React.Component {
               width='thin'
             >
             <Menu.Item as='a' id="current">
-              <Icon name='music'/>
-               
+              Currently Playing:
+              <Icon name='ban'/>               
             </Menu.Item>
             <Menu.Item as='a'>
               <Icon name='home' />
