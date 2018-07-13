@@ -57,7 +57,7 @@ export default class RegisterForm extends Component {
           <Button type="submit" color="primary" size="lg">
               Register
           </Button>
-          <p><a href="http:localhost:3000/login/">Old User</a></p>
+          <p><a href="/login/">Old User</a></p>
         </Form>
       </Jumbotron>
     )

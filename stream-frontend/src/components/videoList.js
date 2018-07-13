@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/videoList.css';
+import '../styles/videoList.css';
 import VideoDetail from './videoDetail.js';
 
 export default class VideoList extends React.Component {

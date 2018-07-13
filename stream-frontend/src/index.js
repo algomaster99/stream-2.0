@@ -4,12 +4,12 @@ import createHistory from 'history/createBrowserHistory'
 import { ConnectedRouter } from 'react-router-redux'
 import { Provider } from 'react-redux'
 import {Route, Switch} from 'react-router'
-import App from './App'
+import App from './components/App'
 import Login from './containers/Login';
 import Register from './containers/Register';
-import Stream from './stream.js';
+import Stream from './components/stream';
 import PrivateRoute from './containers/PrivateRoute';
-import './index.css';
+import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'semantic-ui-css/semantic.min.css';
 import 'font-awesome/css/font-awesome.min.css';

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'normalize.css';
-import './styles/App.css';
+import '../styles/App.css';
 import Header from './header.js';
 import Search from './fetchData.js';
 import StreamController from './streamController.js';

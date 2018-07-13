@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import '../styles/stream.css';
 import { streamSocket } from './webSocket.js';
 
 const URL = "http://www.youtube.com/watch?v=";

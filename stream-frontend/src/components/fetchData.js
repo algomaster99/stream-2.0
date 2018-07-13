@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Input, Container } from 'semantic-ui-react';
 import VideoList from './videoList.js';
-import './styles/fetchData.css';
+import '../styles/fetchData.css';
 
 const API_KEY = 'AIzaSyA2cZVPA4lJRmjSz10R2P8eh4xu-iRIIKU';
 const MAX_RESULTS = 10;
@@ -19,12 +19,6 @@ export default class Search extends React.Component {
   handleSearch = (e) => {
     e.preventDefault();
     let searchTerm = document.getElementById('search-bar').value;
-    /*YTSearch({key: API_KEY, term: searchTerm}, (videos) => {
-      this.setState({
-        videos: videos,
-      });
-    console.log(this.state.videos);
-    });*/
     axios.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
         part: 'snippet',

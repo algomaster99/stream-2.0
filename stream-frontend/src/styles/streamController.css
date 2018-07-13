@@ -31,7 +31,7 @@
   height: 15px;
 }
 
-.volume-slider:focus {
+.seek-slider:focus, .volume-slider:focus {
   outline: none;
 }
 

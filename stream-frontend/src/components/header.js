@@ -1,6 +1,6 @@
 import React from 'react';
-import './styles/header.css';
-import logo from './media/viberr.png';
+import '../styles/header.css';
+import logo from '../media/viberr.png';
 
 export default class Header extends React.Component {
   render() {

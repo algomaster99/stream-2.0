@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { streamSocket } from './webSocket.js';
 import { Segment, Icon } from 'semantic-ui-react';
-import './styles/streamController.css';
+import '../styles/streamController.css';
  
 export default class StreamController extends React.Component {
   constructor(props) {

@@ -1,10 +1,12 @@
 {% for user in object_list %}
-<form action="{% url 'users:permit' user.id %}" method="get">
-    {% csrf_token %}
-    Username: {{ user }}<br />
-    First Name: {{ user.first_name }}<br />
-    Last Name: {{ user.last_name }}<br />
-    Active: {{ user.is_active }}<br />
-    <input type="submit" value="Give Permissions" />
+    {% if not user.is_superuser %}
+        <form action="{% url 'users:permit' user.id %}" method="get">
+        {% csrf_token %}
+        Username: {{ user }}<br />
+        First Name: {{ user.first_name }}<br />
+        Last Name: {{ user.last_name }}<br />
+        Active: {{ user.is_active }}<br />
+        <input type="submit" value="Give Permissions" />
+    {% endif %}
 </form>
 {% endfor %}
