@@ -48,9 +48,9 @@ export default class StreamController extends React.Component {
         };
         streamSocket.send(JSON.stringify(data));
       });
-   console.log("handleMute");
-   const vol = document.querySelector('.volume-slider-container');
-   vol.style.display = 'none';
+  console.log("handleMute");
+  const vol = document.querySelector('.volume-slider-container');
+  vol.style.display = 'none';
   }
 
   handleSeek = (e) => {

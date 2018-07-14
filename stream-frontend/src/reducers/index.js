@@ -6,7 +6,7 @@ import register, * as fromRegister from './register.js'
 export default combineReducers({
   auth: auth,
   register: register,
-  router: routerReducer
+  router: routerReducer,
 })
 export const isAuthenticated =
  state => fromAuth.isAuthenticated(state.auth)

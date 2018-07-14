@@ -8,6 +8,7 @@ import App from './components/App'
 import Login from './containers/Login';
 import Register from './containers/Register';
 import Stream from './components/stream';
+import Profile from './components/profile';
 import PrivateRoute from './containers/PrivateRoute';
 import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -23,6 +24,7 @@ ReactDOM.render((
         <Route exact path="/register/" component={Register} />
         <Route exact path="/login/" component={Login} />
         <Route path="/stream/" component={Stream} />
+        <Route path="/profile" component={Profile} />
         <PrivateRoute path="/" component={App}/>
       </Switch>
     </ConnectedRouter>

@@ -4,7 +4,7 @@ import TextInput from './TextInput'
 export default class LoginForm extends Component {
   state = {
     username: '',
-    password: ''
+    password: '',
   }
   handleInputChange = (event) => {
     const target = event.target,

@@ -6,14 +6,14 @@ import {registerError} from '../reducers'
 
 const Register = (props) => {
     return (
-      <div className="login-page">
+      <div className="register-page">
         <RegisterForm {...props}/>
       </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-  errors: registerError(state)
+  errors: registerError(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

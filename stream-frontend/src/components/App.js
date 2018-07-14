@@ -39,6 +39,10 @@ class App extends React.Component {
     page.style.transition = "transform 0.5s";
   }
 
+  home = () => {
+    window.location = '/';
+  }
+
   render() {
     return (
       <div className="outer-container">
@@ -58,7 +62,7 @@ class App extends React.Component {
               Currently Playing:
               <Icon name='ban'/>               
             </Menu.Item>
-            <Menu.Item as='a'>
+            <Menu.Item as='a' onClick={this.home} active>
               <Icon name='home' />
               Home
             </Menu.Item>
