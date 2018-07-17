@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import axios from 'axios';
 import '../styles/stream.css';
 import { streamSocket } from './webSocket.js';
 
@@ -15,6 +16,7 @@ export default class Stream extends React.Component {
       duration: 0,
       seek: 0,
       volume: 100,
+      user: "",
     };
   }
 
@@ -33,6 +35,18 @@ export default class Stream extends React.Component {
       }
     }
     console.log("mount from stream.js");
+    const obj = localStorage.getItem('persist:polls');
+    const id = JSON.parse(JSON.parse(obj).auth).access.user_id;
+    axios({
+      method: 'get',
+      url: '/stream/users/' + id + '/',
+      responseType: 'stream'
+    })
+      .then((response) => {
+        this.setState({
+          user: response.data.username,
+        });
+      });
   }
  
   handlePlay = () => {
@@ -131,6 +145,7 @@ export default class Stream extends React.Component {
   
   render() {
     return(
+    <div className="player-container">
     <ReactPlayer
       ref={this.ref}
       url={URL+this.state.url}
@@ -143,6 +158,8 @@ export default class Stream extends React.Component {
       onProgress={this.handleProgress}
       onEnded={this.handleEnd}
     />
+    <h4>{this.state.url ? "Played By: " + this.state.user : ""}</h4>
+    </div>
     );
   }
 }
