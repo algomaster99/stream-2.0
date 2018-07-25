@@ -146,6 +146,7 @@ export default class Stream extends React.Component {
   render() {
     return(
     <div className="player-container">
+    <iframe src={"https://www.youtube.com/embed/"+this.state.url+"?controls=0&disablekb=1&autoplay=0"} frameborder="0" allow="autoplay; encrypted-media" className="bg-video" allowfullscreen></iframe>
     <ReactPlayer
       ref={this.ref}
       url={URL+this.state.url}
@@ -157,6 +158,8 @@ export default class Stream extends React.Component {
       onDuration={this.handleDuration}
       onProgress={this.handleProgress}
       onEnded={this.handleEnd}
+      height="36vw"
+      width="64vw"
     />
     <h4>{this.state.url ? "Played By: " + this.state.user : ""}</h4>
     </div>

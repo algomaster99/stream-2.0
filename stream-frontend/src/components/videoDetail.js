@@ -9,6 +9,7 @@ export default class VideoDetail extends React.Component {
     super(props);
     this.state = {
       image: "",
+      playlist: [],
     }
   }
 
@@ -28,6 +29,12 @@ export default class VideoDetail extends React.Component {
     }, () => {
        ReactDOM.render(<div>Currently Playing:<Image src={this.state.image} /></div>, document.getElementById('current'));
        });
+  }
+
+  handleQueue = () => {
+    this.setState({
+      playlist: this.state.playlist.push(this.props.video.id.videoId),
+    }, () => {console.log(this.state.playlist)});
   }
 
   render() {
@@ -55,7 +62,7 @@ export default class VideoDetail extends React.Component {
                 Play
               </Button>
               <Button.Or />
-              <Button icon labelPosition="right" color='blue'>
+              <Button icon labelPosition="right" onClick={this.handleQueue} color='blue'>
                 Queue
                 <Icon name="plus" />
               </Button> 

@@ -1,8 +1,19 @@
 .player-container {
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  /*background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);*/
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;   
+  height: 100vh;
+  background: rgba(255,255,255,0.3);   
+}
+
+.bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100vw; 
+    min-height: 100vh;
+    z-index: -10000;
+    background: rgba(0, 0, 0, 0.3);
 }
