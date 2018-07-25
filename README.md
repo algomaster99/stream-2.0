@@ -11,7 +11,9 @@ on the same network.
 
 # Build and Run
 1. Clone the repository
+
     `$ git clone https://github.com/algomaster99/stream-2.0.git`
+    
     `$ cd stream-2.0`
 2. Set-up virtual environment
     `$ sudo apt-get install python3-venv`
