@@ -3,6 +3,18 @@ stream is a music streaming application made with django, django rest framework 
 t. It can stream live music on a PC while you can control it from other devices
 on the same network.
 
+# Screens
+
+## Player
+
+![main](/readme_assets/main.png)
+
+![sidebar](/readme_assets/sidebar.png)
+
+## Stream
+
+![stream](/readme_assets/stream.png)
+
 # Dependecies
 * python3
 * pip
@@ -36,8 +48,6 @@ on the same network.
 4. Migrate files
 
     `$ cd ../stream`
-    
-    `$ python3 manage.py makemigrations stream-2.0`
     
     `$ python3 manage.py migrate`
 5. Start the backend server
